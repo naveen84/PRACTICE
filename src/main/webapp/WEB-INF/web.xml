@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>SPRINGREST-FILTERS</display-name>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        </welcome-file-list>
+                  <!-- CONFIGURING THE DISPATCHER SERVLET -->
+        <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+       </servlet>
+       <servlet-mapping>
+       <servlet-name>spring</servlet-name>
+       <url-pattern>/*</url-pattern>
+       </servlet-mapping>
+                   <!--END OF CONFIGURING THE DISPATCHER SERVLET -->
+        
+                   <!-- CONFIGURING THE LOG FILTER-->
+       <filter>
+       	<filter-name>LogFilter</filter-name>
+       	<filter-class>com.naveen.filters.LogFilter</filter-class>
+       </filter>
+       <filter-mapping>
+       <filter-name>LogFilter</filter-name>
+       <url-pattern>/*</url-pattern>
+       </filter-mapping>
+                     <!-- CONFIGURING THE LOG FILTER-->
+                     
+                     <!-- CONFIGURING THE AUTHENTICATION FILTER-->
+       <filter>
+       	<filter-name>AuthenticationFilter</filter-name>
+       	<filter-class>com.naveen.filters.AuthenticationFilter</filter-class>
+       </filter>
+       <filter-mapping>
+       <filter-name>AuthenticationFilter</filter-name>
+       <url-pattern>/*</url-pattern>
+       </filter-mapping>
+                     <!-- CONFIGURING THE AUTHENTICATION FILTER-->
+    </web-app>
